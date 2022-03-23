@@ -8,15 +8,13 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "EMPLOYEE_TB")
 public class Employee {
     @Id
     @GeneratedValue
@@ -28,9 +26,9 @@ public class Employee {
     private double salary;
 
     @CreatedDate
-    private long createDate;
+    private Date createDate;
     @LastModifiedDate
-    private long lastModifiedDate;
+    private Date lastModifiedDate;
     @CreatedBy
     private String createdBy;
     @LastModifiedBy
