@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.List;
 
 @Service
 public class EmployeeService {
@@ -33,5 +34,9 @@ public class EmployeeService {
             throw new RuntimeException("Employee not found with id :" + id);
         }
         return "Employee updated successfully...";
+    }
+
+    public List<Employee> getAllEmployee() {
+        return repository.findAll();
     }
 }
